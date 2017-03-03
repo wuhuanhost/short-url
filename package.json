@@ -1,0 +1,28 @@
+{
+  "name": "short-url",
+  "version": "1.0.0",
+  "description": "短网址生成服务",
+  "main": "index.js",
+  "scripts": {
+    "test": "npm run test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/wuhuanhost/short-url.git"
+  },
+  "keywords": [
+    "短网址、short_url"
+  ],
+  "author": "dreamer",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/wuhuanhost/short-url/issues"
+  },
+  "homepage": "https://github.com/wuhuanhost/short-url#readme",
+  "dependencies": {
+    "async": "^2.1.5",
+    "mysql": "^2.13.0",
+    "qr-image": "^3.2.0",
+    "redis": "^2.6.5"
+  }
+}
