@@ -4,37 +4,43 @@ const render=require('koa-ejs');
 const router=require('./routes/router');
 const path=require('path');
 const staticServer = require('koa-static');
+const onerror = require('koa-onerror')
+const logger = require('koa-logger')
 
+//错误消息打印到前台页面
+onerror(app);
+
+//访问日志
+app.use(logger());
 
 //指定静态文件目录，js、css、images等
 app.use(staticServer(path.join(__dirname,'public')));
 
 
-//使用ejs模板渲染
+//使用ejs模板渲染html页面
 render(app, {
   root: path.join(__dirname, 'views'),
   layout: 'template',
-  viewExt: 'ejs',
+  viewExt: 'html',
   cache: false,
   debug: true
 });
 
-
 //设置路由
-app.use(router.routes());
+app.use(router.routes())
+   .use(router.allowedMethods());
 
 
-// response
-app.use(ctx => {
-  ctx.body = 'Hello Koa';
+//404
+app.use(async (ctx) => {
+  ctx.status = 404;
+  await ctx.render('404')
 });
 
+
+//控制台打印错误信息
 app.on('error', function(err){
   console.error('server error', err);
 });
 
-app.listen(3000);
-
-
-//学习资料
-//http://book.apebook.org/minghe/koa-action/xtemplate/xtemplate.html
+module.exports = app;
