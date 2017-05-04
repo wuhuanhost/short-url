@@ -4,9 +4,9 @@
   "description": "短网址生成服务",
   "main": "index.js",
   "scripts": {
-    "test": "npm run test",
-    "dev":"node ./bin/www",
-    "start":"pm2 start ./bin/www"
+    "test": "mocha",
+    "dev": "node ./bin/www",
+    "start": "pm2 start ./bin/www"
   },
   "repository": {
     "type": "git",
@@ -22,14 +22,20 @@
   },
   "homepage": "https://github.com/wuhuanhost/short-url#readme",
   "dependencies": {
+    "koa-convert": "^1.2.0",
     "koa-ejs": "^4.0.0",
     "koa-logger": "^2.0.1",
     "koa-onerror": "^3.1.0",
     "koa-router": "^7.1.1",
     "koa-static": "^3.0.0",
+    "log4js": "^1.1.1",
     "mysql": "^2.13.0",
     "qr-image": "^3.2.0",
     "redis": "^2.6.5",
     "sequelize": "^3.30.2"
+  },
+  "devDependencies": {
+    "chai": "^3.5.0",
+    "mocha": "^3.3.0"
   }
 }

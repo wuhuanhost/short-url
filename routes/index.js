@@ -2,6 +2,7 @@ var Router = require('koa-router');
 var router = new Router();
 
 router.get('/', async (ctx, next)=> {
+	console.error("/")
     ctx.state = ctx.state || {};
     ctx.state.now = new Date();
     ctx.state.ip = ctx.ip;
