@@ -11,6 +11,10 @@ const convert = require('koa-convert');
 const index=require('./routes/index');
 const api=require('./routes/api/index');
 
+//easy_monitor 服务器监控
+//const easyMonitor = require('easy-monitor');
+//easyMonitor('short-url');
+
 app.use(convert(logger()));
 
 //错误消息打印到前台页面
