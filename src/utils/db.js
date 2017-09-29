@@ -1,13 +1,13 @@
 var mysql = require('mysql');
 var async = require('async');
 var pool = mysql.createPool({
-    host: "59.110.67.163",
+    host: "localhost",
     // host: "localhost",
     user: "root",
     // password: "root",
-    password: "flashhand888",
+    password: "root",
     // password: "",
-    database: "shangyang_test",
+    database: "abc",
     port: 3306,
     charset: 'UTF8MB4_GENERAL_CI',
     connectionLimit: 10

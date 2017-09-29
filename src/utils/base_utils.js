@@ -3,7 +3,7 @@
  * @param  {[type]} number [description]
  * @return {[type]}        [description]
  */
-function number10to64(number) {
+exports.number10to64=function(number) {
     var chars = '0123456789abcdefghigklmnopqrstuvwxyzABCDEFGHIGKLMNOPQRSTUVWXYZ-_'.split(''),
         radix = chars.length,//基数
         qutient = number,//系数
@@ -23,7 +23,7 @@ function number10to64(number) {
  * @param  {[type]} number_code [description]
  * @return {[type]}             [description]
  */
-function string64to10(number_code) {
+exports.string64to10=function(number_code) {
   var chars = '0123456789abcdefghigklmnopqrstuvwxyzABCDEFGHIGKLMNOPQRSTUVWXYZ_-',
     radix = chars.length,
     number_code = String(number_code),

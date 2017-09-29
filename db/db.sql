@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 50717
 File Encoding         : 65001
 
-Date: 2017-09-28 18:09:01
+Date: 2017-09-29 12:36:53
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -44,6 +44,7 @@ CREATE TABLE `short_url_1` (
 -- ----------------------------
 -- Records of short_url_1
 -- ----------------------------
+INSERT INTO `short_url_1` VALUES ('1', 'https://www.baidu.com/');
 
 -- ----------------------------
 -- Table structure for `short_url_2`
@@ -59,6 +60,7 @@ CREATE TABLE `short_url_2` (
 -- ----------------------------
 -- Records of short_url_2
 -- ----------------------------
+INSERT INTO `short_url_2` VALUES ('2', 'https://www.baidu.com/s?ie=UTF-8&wd=%E6%96%B0%E6%B5%AA');
 
 -- ----------------------------
 -- Table structure for `short_url_3`
@@ -171,15 +173,15 @@ CREATE TABLE `short_url_9` (
 DROP TABLE IF EXISTS `sys_config`;
 CREATE TABLE `sys_config` (
   `id` int(11) NOT NULL AUTO_INCREMENT COMMENT 'id',
-  `key` varchar(20) NOT NULL DEFAULT '' COMMENT 'url对应的编码',
+  `keyword` varchar(20) NOT NULL DEFAULT '' COMMENT 'url对应的编码',
   `value` varchar(255) NOT NULL COMMENT 'key对应的真实url链接',
   `remark` varchar(255) NOT NULL COMMENT '备注',
   PRIMARY KEY (`id`),
-  UNIQUE KEY `key_index` (`key`) USING HASH
+  UNIQUE KEY `key_index` (`keyword`) USING HASH
 ) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4;
 
 -- ----------------------------
 -- Records of sys_config
 -- ----------------------------
-INSERT INTO `sys_config` VALUES ('1', 'max_index', '0', 'short_url中现有id的最大值');
+INSERT INTO `sys_config` VALUES ('1', 'max_index', '2', 'short_url中现有id的最大值');
 INSERT INTO `sys_config` VALUES ('2', 'domain', 'http://localhost:8080', '短连接域名');

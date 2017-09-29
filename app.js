@@ -1,8 +1,9 @@
+const path=require('path');
 const Koa = require('koa');
 const app = new Koa();
 const router = require('koa-router')();
 const render=require('koa-ejs');
-const path=require('path');
+const koaBody = require('koa-body');
 const staticServer = require('koa-static');
 const onerror = require('koa-onerror');
 const logger = require('koa-logger');
@@ -14,6 +15,9 @@ const api=require('./routes/api/index');
 //easy_monitor 服务器监控
 //const easyMonitor = require('easy-monitor');
 //easyMonitor('short-url');
+
+//解析body参数
+app.use(koaBody());
 
 app.use(convert(logger()));
 

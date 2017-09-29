@@ -1,4 +1,13 @@
 <div>
-  <p>request ip is: <%= ip %></p>
-  <% include user.html %>
+  <!-- <p>request ip is:
+    <%= ip %>
+  </p> -->
+  <!-- <% include user.html %> -->
+
+    <div class="container">
+      <input type="text" value="" id="url">
+      <button id="getShortUrl">获取短连接</button>
+      <p id="shorturl"></p>
+      <div id="qrcode"></div>
+    </div>
 </div>
