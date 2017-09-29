@@ -8,7 +8,7 @@ const async = require('async');
  */
 exports.getUrlByUrlCode = function (urlcode) {
 	let tablename = "short_url_";
-	let urlNumber = baseUtils.string64to10(urlcode);
+	let urlNumber = baseUtils.string62to10(urlcode);
 	let tempUrlNumber = urlNumber.toString();
 	let urlNumberLastNumber = tempUrlNumber.substr(tempUrlNumber.length - 1, 1);
 	tablename = tablename + urlNumberLastNumber;
@@ -51,7 +51,7 @@ exports.getShortUrl = function (url, cb) {
 				let maxIndexLastNumber = tempMaxIndex.substr(tempMaxIndex.length - 1, 1);
 				// console.log(maxIndex+"          "+maxIndexLastNumber);
 				tablename = tablename + maxIndexLastNumber;
-				urlCode = baseUtils.number10to64(maxIndex);
+				urlCode = baseUtils.number10to62(maxIndex);
 				callback(null, "success");
 			} else {
 				callback(err, null);
