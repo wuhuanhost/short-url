@@ -19,6 +19,7 @@ exports.getUser = async(ctx, next) => {
  * 根据url编码获取对应的url
  */
 exports.getUrlByUrlCode = async(ctx, next) => {
+	console.log("<><><><><><><><><>")
     console.log(ctx.params.urlcode)
     var urlcode = ctx.params.urlcode;
     let url = await shortUrlBiz.getUrlByUrlCode(urlcode);

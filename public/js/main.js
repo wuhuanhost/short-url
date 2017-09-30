@@ -2,6 +2,7 @@ $(document).ready(function () {
 
   $("#getShortUrl").click(function () {
     var url = $("#url").val();
+	//alert(url);
     var data = {
       url: url
     };
