@@ -90,8 +90,7 @@ body {
     padding: 10px 20px 20px 20px;
 }
 
-
-.btn1{
+.btn1 {
     display: inline-block;
     width: 80px;
     height: 20px;
@@ -103,14 +102,11 @@ body {
 }
 
 .go {
-
     background-color: #ff4e40;
 }
 
 .copy {
-
     background-color: #11D368;
-
 }
 
 canvas {
@@ -119,6 +115,4 @@ canvas {
     margin-left: calc(calc(100% - 256px) / 2);
 }
 
-#shorturl::selection{
-
-}
+#shorturl::selection {}

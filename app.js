@@ -1,16 +1,16 @@
-const path=require('path');
+const path = require('path');
 const Koa = require('koa');
 const app = new Koa();
 const router = require('koa-router')();
-const render=require('koa-ejs');
+const render = require('koa-ejs');
 const koaBody = require('koa-body');
 const staticServer = require('koa-static');
 const onerror = require('koa-onerror');
 const logger = require('koa-logger');
 const logUtil = require('./src/utils/log_utils.js');
 const convert = require('koa-convert');
-const index=require('./routes/index');
-const api=require('./routes/api/index');
+const index = require('./routes/index');
+const api = require('./routes/api/index');
 
 //easy_monitor 服务器监控
 //const easyMonitor = require('easy-monitor');
@@ -28,22 +28,22 @@ onerror(app);
 app.use(logger());
 
 //详细日志记录到文件
-app.use(async (ctx, next) => {
-  //响应开始时间
-  const start = new Date();
-  //响应间隔时间
-  var ms;
-  try {
-    //开始进入到下一个中间件
-    await next();
-    ms = new Date() - start;
-    //记录响应日志
-    logUtil.logResponse(ctx, ms);
-  } catch (error) {
-    ms = new Date() - start;
-    //记录异常日志
-    logUtil.logError(ctx, error, ms);
-  }
+app.use(async(ctx, next) => {
+    //响应开始时间
+    const start = new Date();
+    //响应间隔时间
+    var ms;
+    try {
+        //开始进入到下一个中间件
+        await next();
+        ms = new Date() - start;
+        //记录响应日志
+        logUtil.logResponse(ctx, ms);
+    } catch (error) {
+        ms = new Date() - start;
+        //记录异常日志
+        logUtil.logError(ctx, error, ms);
+    }
 });
 
 
@@ -61,30 +61,30 @@ app.use(router.routes(), router.allowedMethods());
 
 
 //指定静态文件目录，js、css、images等
-app.use(staticServer(path.join(__dirname,'public')));
+app.use(staticServer(path.join(__dirname, 'public')));
 
 
 //使用ejs模板渲染html页面
 render(app, {
-  root: path.join(__dirname, 'views'),
-  layout: 'template',
-  viewExt: 'html',
-  cache: false,
-  debug: true
+    root: path.join(__dirname, 'views'),
+    layout: 'template',
+    viewExt: 'html',
+    cache: false,
+    debug: true
 });
 
 
 //404页面
-app.use(async (ctx) => {
-  ctx.status = 404;
-  await ctx.render('404')
+app.use(async(ctx) => {
+    ctx.status = 404;
+    await ctx.render('404')
 });
 
 
 //打印错误信息
-app.on('error', function(err, ctx){
-  console.log(err);
-  logger.error('server error', err, ctx);
+app.on('error', function(err, ctx) {
+    console.log(err);
+    logger.error('server error', err, ctx);
 });
 
 

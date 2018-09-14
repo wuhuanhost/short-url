@@ -19,17 +19,21 @@ exports.getUser = async(ctx, next) => {
  * 根据url编码获取对应的url
  */
 exports.getUrlByUrlCode = async(ctx, next) => {
-	console.log("<><><><><><><><><>")
+    console.log("<><><><><><><><><>")
     console.log(ctx.params.urlcode)
     var urlcode = ctx.params.urlcode;
     let url = await shortUrlBiz.getUrlByUrlCode(urlcode);
-    ctx.response.redirect(url||"http://localhost:8080");
+    ctx.response.redirect(url || "http://localhost:8080");
 }
 
-
+/**
+ *生成对应的短连接
+ * @param {*} 链接url
+ * @returns
+ */
 function getShortUrlPromise(url) {
-    return new Promise(function (resolve, reject) {
-        shortUrlBiz.getShortUrl(url, function (err, result) {
+    return new Promise(function(resolve, reject) {
+        shortUrlBiz.getShortUrl(url, function(err, result) {
             if (!err) {
                 resolve(result);
             } else {

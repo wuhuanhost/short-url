@@ -1,24 +1,26 @@
 <div>
-  <!-- <p>request ip is:
+    <!-- <p>request ip is:
     <%= ip %>
   </p> -->
-  <!-- <% include user.html %> -->
+    <!-- <% include user.html %> -->
 
-  <div class="mask">
-    <div class="result-content">
-      <h3>压缩后网址</h3>
-      <p><span id="shorturl"></span><span class="copy btn1">复制</span><span class="go btn1">快速浏览</span></p>
-      <h3>二维码</h3>
-      <div id="qrcode"></div>
+    <div class="mask">
+        <div class="result-content">
+            <h3>压缩后网址</h3>
+            <p><span id="shorturl"></span>
+                <span class="copy btn1" data-clipboard-text="dasdas" id="copy-button">复制</span>
+                <span class="go btn1">快速浏览</span></p>
+            <h3>二维码</h3>
+            <div id="qrcode"></div>
+        </div>
     </div>
-  </div>
 
-  <div class="container">
-    <h1 class="text-primary">短网址生成</h1>
-    <div class="myfrom">
-      <div class="input-container">
-        <input type="text" placeholder="请输入你要压缩的链接地址" id="url">
-      </div>
-      <div class="btn" id="getShortUrl">压缩链接</div>
+    <div class="container">
+        <h1 class="text-primary">短网址生成</h1>
+        <div class="myfrom">
+            <div class="input-container">
+                <input type="text" placeholder="请输入你要压缩的链接地址" id="url">
+            </div>
+            <div class="btn" id="getShortUrl">压缩链接</div>
+        </div>
     </div>
-  </div>
