@@ -1,15 +1,15 @@
-var mysql = require('mysql');
-var async = require('async');
+var mysql = require("mysql");
+var async = require("async");
 var pool = mysql.createPool({
     host: "localhost",
     // host: "localhost",
     user: "root",
     // password: "root",
-    password: "root",
+    password: "",
     // password: "",
     database: "short_url",
     port: 3306,
-    charset: 'UTF8MB4_GENERAL_CI',
+    charset: "UTF8MB4_GENERAL_CI",
     connectionLimit: 10
 });
 
@@ -38,7 +38,6 @@ exports.execSql = function(sql, param, callback) {
     });
 };
 
-
 /**
  * 事物对象
  * @param {[type]}   sql      [description]
@@ -55,8 +54,8 @@ exports.addSqlTask = function(sql, params, callback) {
     return {
         sql: sql,
         params: params
-    }
-}
+    };
+};
 
 //执行事务的方法
 exports.execTrans = function(sqlTask, callback) {
@@ -89,7 +88,7 @@ exports.execTrans = function(sqlTask, callback) {
                             return cb(null, result);
                         }
                     });
-                }
+                };
                 sqlTaskFun.push(tempSqlTaskFun);
             });
 
@@ -99,7 +98,7 @@ exports.execTrans = function(sqlTask, callback) {
                     conn.rollback(function(err) {
                         conn.release();
                         return callback(err, null);
-                    })
+                    });
                 } else {
                     conn.commit(function(err, info) {
                         console.console(JSON.stringify(info));
@@ -107,7 +106,7 @@ exports.execTrans = function(sqlTask, callback) {
                             conn.rollback(function(err) {
                                 conn.release();
                                 return callback(err, null);
-                            })
+                            });
                         } else {
                             console.console("transaction commit success!!!");
                             conn.release(); //关闭连接，释放资源
@@ -119,8 +118,7 @@ exports.execTrans = function(sqlTask, callback) {
             });
         });
     });
-}
-
+};
 
 //执行存储过程的方法
 // module.exports = {
